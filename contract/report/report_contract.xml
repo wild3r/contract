@@ -16,11 +16,11 @@
             <div class="page">
                 <div class="oe_structure" />
                 <div class="row" id="header_info">
-                    <div class="col-3">
+                    <div class="col-6">
                         <strong>Responsible: </strong>
                         <p t-field="o.user_id" />
                         <strong>Contract: </strong>
-                        <p t-field="o.code" />
+                        <span t-field="o.x_contract_type" /> (<span t-field="o.name" />)
                     </div>
                 </div>
                 <div id="invoice_info">
@@ -38,15 +38,15 @@
                                     <th class="text-right">
                                         <strong>Quantity</strong>
                                     </th>
-                                    <th class="text-right">
+                                    <!-- <th class="text-right">
                                         <strong>Unit Price</strong>
-                                    </th>
+                                    </th> -->
                                     <th class="text-right">
                                         <strong>Price</strong>
                                     </th>
-                                    <th class="text-right">
+                                    <!-- <th class="text-right">
                                         <strong>Date Start</strong>
-                                    </th>
+                                    </th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -66,21 +66,21 @@
                                             <td class="text-right">
                                                 <span t-field="l.quantity" />
                                             </td>
-                                            <td class="text-right">
+                                            <!-- <td class="text-right">
                                                 <span
                                                     t-field="l.price_unit"
                                                     t-options='{"widget": "monetary", "display_currency": o.currency_id}'
                                                 />
-                                            </td>
+                                            </td> -->
                                             <td class="text-right">
                                                 <span
                                                     t-field="l.price_subtotal"
                                                     t-options='{"widget": "monetary", "display_currency": o.currency_id}'
                                                 />
                                             </td>
-                                            <td class="text-right">
+                                            <!-- <td class="text-right">
                                                 <span t-field="l.date_start" />
-                                            </td>
+                                            </td> -->
                                             <t
                                                 t-set="total"
                                                 t-value="total + l.price_subtotal"

@@ -27,6 +27,7 @@
         "report/report_contract.xml",
         "report/contract_views.xml",
         "data/contract_cron.xml",
+        "data/sequence.xml",
         "data/contract_renew_cron.xml",
         "data/mail_template.xml",
         "data/template_mail_notification.xml",

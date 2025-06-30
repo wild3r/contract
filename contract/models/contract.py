@@ -30,6 +30,9 @@ class ContractContract(models.Model):
         "portal.mixin",
     ]
 
+    name = fields.Char(
+        default="New"
+    )
     active = fields.Boolean(
         default=True,
     )
@@ -138,6 +141,22 @@ class ContractContract(models.Model):
         inverse_name="contract_id",
         string="Modifications",
     )
+    x_contract_type = fields.Selection(
+        string="Tipo de Contrato",
+        selection=[
+            ("pension", "Pensión"),
+            ("matricula", "Matrícula"),
+        ],
+        default="pension",
+        required=True,
+        help="Tipo de Contrato",
+    )
+
+
+    def unlink(self):
+        for record in self:
+            raise ValidationError(_("No puede eliminar un Contrato"))
+        return super().unlink()
 
     def get_formview_id(self, access_uid=None):
         if self.contract_type == "sale":
@@ -147,6 +166,8 @@ class ContractContract(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
+        for vals in vals_list:
+            vals['name'] = self.env['ir.sequence'].next_by_code('contract.contract') or '/'
         records = super().create(vals_list)
         records._set_start_contract_modification()
         return records

@@ -316,7 +316,7 @@ msgstr "<strong>Notas: </strong>"
 #. module: contract
 #: model_terms:ir.ui.view,arch_db:contract.report_contract_document
 msgid "<strong>Partner:</strong>"
-msgstr "<strong>Empresa:</strong>"
+msgstr "<strong>Estudiante:</strong>"
 
 #. module: contract
 #: model_terms:ir.ui.view,arch_db:contract.report_contract_document
@@ -1039,7 +1039,7 @@ msgstr "Personalizado"
 #: model:ir.model.fields.selection,name:contract.selection__contract_template__contract_type__sale
 #: model_terms:ir.ui.view,arch_db:contract.contract_contract_customer_form_view
 msgid "Customer"
-msgstr "Cliente"
+msgstr "Estudiante"
 
 #. module: contract
 #: model:ir.actions.act_window,name:contract.action_customer_contract_lines
@@ -1055,7 +1055,7 @@ msgstr "Líneas de contrato de clientes"
 #: model:ir.actions.act_window,name:contract.action_customer_contract
 #: model:ir.ui.menu,name:contract.menu_contract_contract_customer
 msgid "Customer Contracts"
-msgstr "Contratos de cliente"
+msgstr "Contratos"
 
 #. module: contract
 #: model:ir.model.fields,help:contract.field_contract_contract__access_url
@@ -1804,7 +1804,7 @@ msgstr "Otra información"
 #: model:ir.model.fields,field_description:contract.field_contract_template__partner_id
 #: model:ir.model.fields,field_description:contract.field_contract_template_line__partner_id
 msgid "Partner"
-msgstr "Cliente"
+msgstr "Estudiante"
 
 #. module: contract
 #: model:ir.model.fields,field_description:contract.field_contract_contract__payment_term_id
@@ -2401,7 +2401,7 @@ msgstr "Actualizar detalles de terminación"
 #. module: contract
 #: model_terms:ir.ui.view,arch_db:contract.report_contract_document
 msgid "VAT:"
-msgstr "NIF:"
+msgstr "DNI:"
 
 #. module: contract
 #: model_terms:ir.ui.view,arch_db:contract.contract_line_wizard_plan_successor_form_view

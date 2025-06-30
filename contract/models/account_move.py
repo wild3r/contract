@@ -3,7 +3,8 @@
 # Copyright 2020 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models
+from odoo import _, fields, models
+from odoo.exceptions import ValidationError
 
 
 class AccountMove(models.Model):
@@ -11,6 +12,11 @@ class AccountMove(models.Model):
 
     # We keep this field for migration purpose
     old_contract_id = fields.Many2one("contract.contract")
+
+    def unlink(self):
+        for record in self:
+            raise ValidationError(_("No puede eliminar un comprobante"))
+        return super().unlink()
 
 
 class AccountMoveLine(models.Model):

@@ -98,7 +98,7 @@
                             <field
                                 name="name"
                                 class="oe_inline"
-                                readonly="is_terminated"
+                                readonly="1"
                                 placeholder="e.g. Contract XYZ"
                             />
                         </h3>
@@ -111,7 +111,8 @@
                                 required="1"
                                 readonly="is_terminated"
                             />
-                            <field name="pricelist_id" readonly="is_terminated" />
+                            <field name="pricelist_id" readonly="is_terminated" invisible="1"/>
+                            <field name="x_contract_type" />
                             <field name="payment_term_id" readonly="is_terminated" />
                             <field name="user_id" readonly="is_terminated" />
                         </group>
@@ -142,6 +143,7 @@
                                 name="line_recurrence"
                                 class="oe_inline"
                                 readonly="line_recurrence and invoice_count != 0"
+                                invisible="1"
                             />
                         </group>
                         <group invisible="line_recurrence">
