@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+
+        <record id="group_delete_invoices_contracts" model="res.groups">
+            <field name="name">Permite eliminar facturas y contratos</field>
+        </record>
+
+    </data>
+</odoo>

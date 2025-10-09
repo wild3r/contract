@@ -154,7 +154,7 @@ class ContractContract(models.Model):
 
 
     def unlink(self):
-        for record in self:
+        if not self.env.user.has_group('contract.group_delete_invoices_contracts'):
             raise ValidationError(_("No puede eliminar un Contrato"))
         return super().unlink()
 

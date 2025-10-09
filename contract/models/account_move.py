@@ -14,7 +14,7 @@ class AccountMove(models.Model):
     old_contract_id = fields.Many2one("contract.contract")
 
     def unlink(self):
-        for record in self:
+        if not self.env.user.has_group('contract.group_delete_invoices_contracts'):
             raise ValidationError(_("No puede eliminar un comprobante"))
         return super().unlink()
 

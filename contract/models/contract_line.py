@@ -614,17 +614,18 @@ class ContractLine(models.Model):
 
     def _insert_markers(self, first_date_invoiced, last_date_invoiced):
         self.ensure_one()
-        lang_obj = self.env["res.lang"]
-        lang = lang_obj.search([("code", "=", self.contract_id.partner_id.lang)])
+        lang = self.env['res.lang']._lang_get(self.contract_id.partner_id.lang or self.env.user.lang or self.env.lang)
         date_format = lang.date_format or "%m/%d/%Y"
-        name = self.name
-        name = name.replace("#START#", first_date_invoiced.strftime(date_format))
-        name = name.replace("#END#", last_date_invoiced.strftime(date_format))
+        name = self.name or ""
+        name = name.replace("#START#", first_date_invoiced and first_date_invoiced.strftime(date_format) or "")
+        # fallback al inicio si no hay fin
+        end_date = last_date_invoiced or first_date_invoiced
+        name = name.replace("#END#", end_date and end_date.strftime(date_format) or "")
         name = name.replace(
             "#INVOICEMONTHNAME#",
             self.with_context(lang=lang.code)._translate_marker_month_name(
-                first_date_invoiced.strftime("%m")
-            ),
+                (first_date_invoiced or end_date).strftime("%m")
+            ) if (first_date_invoiced or end_date) else ""
         )
         return name
 

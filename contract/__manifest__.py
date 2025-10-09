@@ -24,6 +24,7 @@
         "security/ir.model.access.csv",
         "security/contract_security.xml",
         "security/contract_terminate_reason.xml",
+        "security/security_group.xml",
         "report/report_contract.xml",
         "report/contract_views.xml",
         "data/contract_cron.xml",
