@@ -47,6 +47,7 @@
         "views/res_config_settings.xml",
         "views/contract_terminate_reason.xml",
         "views/contract_portal_templates.xml",
+        "views/account_move_view.xml",
     ],
     "assets": {
         "web.assets_frontend": ["contract/static/src/scss/frontend.scss"],
