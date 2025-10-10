@@ -468,6 +468,7 @@ class ContractContract(models.Model):
             "invoice_date": date_invoice,
             "journal_id": journal.id,
             "invoice_origin": self.name,
+            "contract_id": self.id,
             "invoice_line_ids": [],
         }
         if self.payment_term_id:

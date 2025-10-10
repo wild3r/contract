@@ -12,6 +12,7 @@ class AccountMove(models.Model):
 
     # We keep this field for migration purpose
     old_contract_id = fields.Many2one("contract.contract")
+    contract_id = fields.Many2one("contract.contract", string="Contrato")
 
     def unlink(self):
         if not self.env.user.has_group('contract.group_delete_invoices_contracts'):
